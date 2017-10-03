@@ -1,0 +1,30 @@
+<h1>New Mirror</h1>
+
+
+<%= form_with scope: :mirror, url: mirrors_path, local: true do |form| %>
+
+  <% if @mirror.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@mirror.errors.count, "error") %> prohibited
+        this mirror from being saved:
+      </h2>
+      <ul>
+        <% @mirror.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :codename %><br>
+    <%= form.text_field :codename %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', mirrors_path %>_

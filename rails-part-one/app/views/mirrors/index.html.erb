@@ -1,0 +1,20 @@
+
+<h1>Listing Mirrors</h1>
+<%= link_to 'New mirror', new_mirror_path %>
+<table>
+  <tr>
+    <th>Codename</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @mirrors.each do |mirror| %>
+    <tr>
+      <td><%= mirror.title %></td>
+      <td><%= link_to 'Show', mirror_path(mirror) %></td>
+      <td><%= link_to 'Edit', edit_mirror_path(mirror) %></td>
+      <td><%= link_to 'Destroy', mirror_path(mirror),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

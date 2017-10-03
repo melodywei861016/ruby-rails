@@ -1,0 +1,36 @@
+
+<p>
+  <strong>Codename:</strong>
+  <%= @mirror.codename %>
+</p>
+
+<h2>Members</h2>
+<% @mirror.members.each do |member| %>
+  <p>
+    <strong>First_name:</strong>
+    <%= member.first_name %>
+  </p>
+ 
+  <p>
+    <strong>Last_name:</strong>
+    <%= member.last_name %>
+  </p>
+<% end %>
+
+<h2>Add a member:</h2>
+<%= form_with(model: [ @mirror, @mirror.members.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+    <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_mirror_path(@mirror) %> |
+<%= link_to 'Back', mirrors_path %>

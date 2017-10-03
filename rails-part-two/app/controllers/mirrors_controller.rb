@@ -1,10 +1,12 @@
 class MirrorsController < ApplicationController
+    
   before_action :authenticate_mirror!
 
   load_and_authorize_resource
 
   def index
     # render json: @mirrors
+    
   end
 
   def show
